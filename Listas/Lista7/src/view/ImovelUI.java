@@ -44,9 +44,9 @@ public class ImovelUI extends javax.swing.JFrame {
         tfNome = new javax.swing.JTextField();
         tfArea = new javax.swing.JTextField();
         tfEndereco = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rdR = new javax.swing.JRadioButton();
+        rdC = new javax.swing.JRadioButton();
+        rdI = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,11 +93,16 @@ public class ImovelUI extends javax.swing.JFrame {
             }
         });
 
-        jRadioButton1.setText("Residencial");
+        rdR.setText("Residencial");
+        rdR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdRActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Comercial");
+        rdC.setText("Comercial");
 
-        jRadioButton3.setText("Industrial");
+        rdI.setText("Industrial");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,11 +127,11 @@ public class ImovelUI extends javax.swing.JFrame {
                             .addComponent(tfArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tfEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jRadioButton1)
+                                .addComponent(rdR)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton2)
+                                .addComponent(rdC)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton3))))
+                                .addComponent(rdI))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -154,9 +159,9 @@ public class ImovelUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(rdR)
+                    .addComponent(rdC)
+                    .addComponent(rdI))
                 .addGap(70, 70, 70)
                 .addComponent(jLabel5)
                 .addGap(38, 38, 38)
@@ -192,21 +197,36 @@ public class ImovelUI extends javax.swing.JFrame {
         String nomeBairro = tfNome.getText();
         Bairro bairro = new Bairro(nomeBairro, coeficienteBairro);
         
-        Imovel imovel = new Imovel(bairro);
         
-        int area = Integer.parseInt(tfArea.getText());
-        imovel.setArea(area);
-        // precisa usar os botao pra definir a finalidade, um swith case da green
-        imovel.setFinalidade(Finalidade.RESIDENCIAL);  
-
-        lbValor.setText("a"+ imovel.calcularIptu());
+        String area = tfArea.getText();
+        String endereco = tfEndereco.getText();
         
 
-
-
-
         
+        if (rdR.isSelected() && rdC.isSelected() == false && rdI.isSelected() == false){
+            Imovel imovel = new Imovel(bairro, area, endereco, "RESIDENCIAL");
+            lbValor.setText("R$"+ imovel.calcularIptu());
+        }
+        else if (rdR.isSelected() == false && rdC.isSelected()&& rdI.isSelected() == false){
+            Imovel imovel = new Imovel(bairro, area, endereco, "COMERCIAL");
+            lbValor.setText("R$"+ imovel.calcularIptu());
+        }
+        else if (rdR.isSelected() == false && rdC.isSelected() == false && rdI.isSelected()){
+            Imovel imovel = new Imovel(bairro, area, endereco, "INDUSTRIAL");
+            lbValor.setText("R$"+ imovel.calcularIptu());
+        }
+        else{
+            throw new IllegalArgumentException("Apenas 1 Finalidade pode estar selecionada");
+
+        }
+        
+        
+             
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void rdRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -253,10 +273,10 @@ public class ImovelUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JLabel lbValor;
+    private javax.swing.JRadioButton rdC;
+    private javax.swing.JRadioButton rdI;
+    private javax.swing.JRadioButton rdR;
     private javax.swing.JTextField tfArea;
     private javax.swing.JTextField tfCoeficiente;
     private javax.swing.JTextField tfEndereco;

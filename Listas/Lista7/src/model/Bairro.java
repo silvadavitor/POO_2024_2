@@ -13,6 +13,9 @@ public class Bairro {
     private double coeficienteIptu;
 
     public Bairro(String nome, double coeficienteIptu) {
+        if (coeficienteIptu < 0) {
+            throw new IllegalArgumentException("Coeficiente do bairro não pode ser negativo.");
+        } 
         this.nome = nome;
         this.coeficienteIptu = coeficienteIptu;
     }
