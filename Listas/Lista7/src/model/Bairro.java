@@ -8,8 +8,10 @@ package model;
  *
  * @author vitor-nuvme
  */
+
 public class Bairro {
     private String nome;
+
     private double coeficienteIptu;
 
     public Bairro(String nome, double coeficienteIptu) {
@@ -19,7 +21,6 @@ public class Bairro {
         this.nome = nome;
         this.coeficienteIptu = coeficienteIptu;
     }
-
     public String getNome() {
         return nome;
     }
