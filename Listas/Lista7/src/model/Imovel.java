@@ -78,38 +78,35 @@ public class Imovel {
 
         double valorBase = 0;
 
-        // Corrigindo a lógica para o cálculo do IPTU residencial
         if (finalidade == Finalidade.RESIDENCIAL) {
             if (area <= 100) {
-                valorBase = 500; // IPTU base para área <= 100 m²
+                valorBase = 500; 
             } else if (area <= 400) {
-                valorBase = 400; // IPTU base para área de 400 m²
+                valorBase = 400;
             } else {
-                valorBase = 400 + ((area - 400) * 2.55); // A partir de 400 m²
+                valorBase = 400 + ((area - 400) * 1.00); 
             }
         }
         else if (finalidade == Finalidade.COMERCIAL) {
             if (area <= 100) {
-                valorBase = 500; // IPTU base para área <= 100 m²
+                valorBase = 500; 
             } else if (area <= 400) {
-                valorBase = 1000; // IPTU base para área <= 400 m²
+                valorBase = 1000; 
             } else {
-                // Mudar para refletir 1275.00 total
-                valorBase = 1000 + ((area - 400) * 2.75); // Ajuste o valor por m² para 2.75, por exemplo.
+                valorBase = 1000 + ((area - 400) * 2.75); 
             }
         }
         else if (finalidade == Finalidade.INDUSTRIAL) {
             if (area <= 2000) {
-                valorBase = 1000; // IPTU base para área <= 2000 m²
+                valorBase = 1000; 
             } else {
-                valorBase = 1000 + ((area - 2000) * 0.55); // A partir de 2000 m²
+                valorBase = 1000 + ((area - 2000) * 0.65); 
             }
         }
 
-        // Aplicar o coeficiente ao valor base
         double iptu = valorBase * bairro.getCoeficienteIptu();
 
-        // Retorna o IPTU calculado
         return iptu;
     }
+
 }
