@@ -6,7 +6,7 @@ package model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import model.Bairro;
+
 /**
  *
  * @author vitor-nuvme
@@ -15,7 +15,7 @@ public class ImovelTest {
     
     public ImovelTest() {
     }
-
+    
     @Test(expected = IllegalArgumentException.class)
     public void test1() {
         Imovel imovel = new Imovel(new Bairro("Centro", 1.0), "-5", "Rua ABC", "RESIDENCIAL");

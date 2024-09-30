@@ -75,18 +75,12 @@ public class ImovelUI extends javax.swing.JFrame {
             }
         });
 
-        tfCoeficiente.setText("jTextField1");
-
-        tfNome.setText("jTextField2");
-
-        tfArea.setText("jTextField3");
         tfArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfAreaActionPerformed(evt);
             }
         });
 
-        tfEndereco.setText("jTextField4");
         tfEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfEnderecoActionPerformed(evt);
@@ -141,7 +135,7 @@ public class ImovelUI extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGap(27, 27, 27)
                         .addComponent(lbValor)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

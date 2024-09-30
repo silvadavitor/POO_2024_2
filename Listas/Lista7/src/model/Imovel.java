@@ -9,6 +9,7 @@ package model;
  *
  * @author vitor-nuvme
  */
+
 public class Imovel {
     private String endereco;
     private int area;
