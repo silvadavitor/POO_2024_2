@@ -3,18 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
-
+import model.Professor;
+import model.Titulacao;
+import model.Turma;
+import model.Turno;
 /**
  *
  * @author vitor-nuvme
  */
 public class TurmaUI extends javax.swing.JFrame {
-
+    Turma turma = new Turma();
     /**
      * Creates new form TurmaUI
      */
     public TurmaUI() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -32,17 +36,17 @@ public class TurmaUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        rdMatutino = new javax.swing.JRadioButton();
+        rdVespertino = new javax.swing.JRadioButton();
+        rdNoturno = new javax.swing.JRadioButton();
         tfDisciplina = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        rdGraduado = new javax.swing.JRadioButton();
+        rdMestrado = new javax.swing.JRadioButton();
+        rdDoutorado = new javax.swing.JRadioButton();
         tfNmProfessor = new javax.swing.JTextField();
         tfEmailProfessor = new javax.swing.JTextField();
         btIncluir = new javax.swing.JButton();
@@ -58,19 +62,19 @@ public class TurmaUI extends javax.swing.JFrame {
 
         jLabel3.setText("Turno:");
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Matutino");
+        buttonGroup1.add(rdMatutino);
+        rdMatutino.setText("Matutino");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Vespertino");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rdVespertino);
+        rdVespertino.setText("Vespertino");
+        rdVespertino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                rdVespertinoActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("Noturno");
+        buttonGroup1.add(rdNoturno);
+        rdNoturno.setText("Noturno");
 
         tfDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,17 +90,17 @@ public class TurmaUI extends javax.swing.JFrame {
 
         jLabel7.setText("Titulação:");
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("Graduado");
+        buttonGroup2.add(rdGraduado);
+        rdGraduado.setText("Graduado");
 
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setText("Mestrado");
+        buttonGroup2.add(rdMestrado);
+        rdMestrado.setText("Mestrado");
 
-        buttonGroup2.add(jRadioButton6);
-        jRadioButton6.setText("Doutorado");
-        jRadioButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup2.add(rdDoutorado);
+        rdDoutorado.setText("Doutorado");
+        rdDoutorado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton6ActionPerformed(evt);
+                rdDoutoradoActionPerformed(evt);
             }
         });
 
@@ -134,9 +138,9 @@ public class TurmaUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton4)
+                                .addComponent(rdGraduado)
                                 .addGap(46, 46, 46)
-                                .addComponent(jRadioButton5))
+                                .addComponent(rdMestrado))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btIncluir)
                                 .addGap(18, 18, 18)
@@ -160,7 +164,7 @@ public class TurmaUI extends javax.swing.JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(6, 6, 6)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jRadioButton6)
+                                                    .addComponent(rdDoutorado)
                                                     .addComponent(tfEmailProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -168,11 +172,11 @@ public class TurmaUI extends javax.swing.JFrame {
                                         .addGap(0, 3, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(rdMatutino)
                                         .addGap(57, 57, 57)
-                                        .addComponent(jRadioButton2)
+                                        .addComponent(rdVespertino)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jRadioButton3)))))
+                                        .addComponent(rdNoturno)))))
                         .addGap(64, 64, 64))))
         );
         layout.setVerticalGroup(
@@ -186,9 +190,9 @@ public class TurmaUI extends javax.swing.JFrame {
                     .addComponent(tfDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
+                    .addComponent(rdMatutino)
+                    .addComponent(rdVespertino)
+                    .addComponent(rdNoturno)
                     .addComponent(jLabel3))
                 .addGap(58, 58, 58)
                 .addComponent(jLabel4)
@@ -203,9 +207,9 @@ public class TurmaUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6))
+                    .addComponent(rdGraduado)
+                    .addComponent(rdMestrado)
+                    .addComponent(rdDoutorado))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btIncluir)
@@ -216,28 +220,56 @@ public class TurmaUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton6ActionPerformed
+    private void rdDoutoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdDoutoradoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton6ActionPerformed
+    }//GEN-LAST:event_rdDoutoradoActionPerformed
 
     private void tfNmProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNmProfessorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfNmProfessorActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void rdVespertinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdVespertinoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_rdVespertinoActionPerformed
 
     private void tfDisciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDisciplinaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfDisciplinaActionPerformed
 
     private void btListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btListarActionPerformed
-        // TODO add your handling code here:
+        turma.setDisciplina(tfDisciplina.getText());
+        
+        if (rdMatutino.isSelected()) {
+            turma.setTurno(Turno.MATUTINO);
+        } 
+        else if (rdVespertino.isSelected()) {
+            turma.setTurno(Turno.VESPERTINO);
+        } 
+        else if (rdNoturno.isSelected()) {
+            turma.setTurno(Turno.NOTURNO);
+        } 
+        
+        
+        if (rdGraduado.isSelected()) {
+            Professor professor = new Professor(Titulacao.GRADUACAO, tfNmProfessor.getText(), tfEmailProfessor.getText());
+            turma.setProfessor(professor);
+        } 
+        else if (rdMestrado.isSelected()) {
+            Professor professor = new Professor(Titulacao.MESTRADO, tfNmProfessor.getText(), tfEmailProfessor.getText());
+            turma.setProfessor(professor);
+        } 
+        else if (rdDoutorado.isSelected()) {
+            Professor professor = new Professor(Titulacao.DOUTORADO, tfNmProfessor.getText(), tfEmailProfessor.getText());
+            turma.setProfessor(professor);
+        }   
+        
+        ListaUI consulta = new ListaUI(turma);
+        consulta.setVisible(true);
     }//GEN-LAST:event_btListarActionPerformed
 
     private void btIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncluirActionPerformed
-        // TODO add your handling code here:
+        AlunoUI formularioAluno = new AlunoUI(turma);
+        formularioAluno.setVisible(true);
     }//GEN-LAST:event_btIncluirActionPerformed
 
     /**
@@ -288,12 +320,12 @@ public class TurmaUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JRadioButton rdDoutorado;
+    private javax.swing.JRadioButton rdGraduado;
+    private javax.swing.JRadioButton rdMatutino;
+    private javax.swing.JRadioButton rdMestrado;
+    private javax.swing.JRadioButton rdNoturno;
+    private javax.swing.JRadioButton rdVespertino;
     private javax.swing.JTextField tfDisciplina;
     private javax.swing.JTextField tfEmailProfessor;
     private javax.swing.JTextField tfNmProfessor;

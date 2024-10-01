@@ -16,10 +16,14 @@ public class Turma {
     private Turno turno;
     private ArrayList<Aluno> alunos;
 
+    
+    public Turma (){
+        this.alunos = new ArrayList<>();
+    }
     public String getDisciplina() {
         return disciplina;
     }
-
+    
     public void setDisciplina(String disciplina) {
         this.disciplina = disciplina;
     }
@@ -40,14 +44,14 @@ public class Turma {
         this.turno = turno;
     }
 
-    public ArrayList<Aluno> getAluno() {
+    public ArrayList<Aluno> getAlunos() {
         return alunos;
     }
 
 
     
     public void incluirAluno(Aluno aluno){
-        alunos.add(aluno);
+        this.alunos.add(aluno);
     }
     
     public void removerAluno(Aluno aluno){
