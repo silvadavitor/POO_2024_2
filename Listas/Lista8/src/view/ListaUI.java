@@ -41,7 +41,6 @@ public class ListaUI extends javax.swing.JFrame {
         btConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(353, 356));
 
         btCancelar.setText("Cancelar");
         btCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +50,8 @@ public class ListaUI extends javax.swing.JFrame {
         });
 
         jLabel1.setText("Consulta");
+
+        taTexto.setEditable(false);
 
         btConsultar.setText("Consultar");
         btConsultar.addActionListener(new java.awt.event.ActionListener() {

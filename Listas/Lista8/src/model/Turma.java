@@ -58,7 +58,21 @@ public class Turma {
         alunos.remove(aluno);
     }
     
-//    public Aluno obterAlunoMelhorNotaEnem(){
-//    
-//    }
+    public Aluno obterAlunoMelhorNotaEnem() {
+        if (alunos.isEmpty()) {
+            return null;  
+        }
+        
+        // Assume que o aluno com a maior nota é o primeiro
+        Aluno melhorNota = alunos.get(0);  
+        
+        // Varre o arraylist alunos comparando a nota deles, se for maior guarda na env alunoMelhorNota
+        for (Aluno aluno : alunos) {
+            if (aluno.getNotaEnem() > alunoMelhorNota.getNotaEnem()) {
+                melhorNota = aluno; 
+            }
+        }
+        // Retorna a env alunoMelhorNota
+        return melhorNota;
+    }
 }
