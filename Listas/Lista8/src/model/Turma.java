@@ -68,7 +68,7 @@ public class Turma {
         
         // Varre o arraylist alunos comparando a nota deles, se for maior guarda na env alunoMelhorNota
         for (Aluno aluno : alunos) {
-            if (aluno.getNotaEnem() > alunoMelhorNota.getNotaEnem()) {
+            if (aluno.getNotaEnem() > melhorNota.getNotaEnem()) {
                 melhorNota = aluno; 
             }
         }
