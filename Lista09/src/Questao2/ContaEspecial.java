@@ -27,11 +27,14 @@ public class ContaEspecial extends ContaBancaria {
     @Override
     public void sacar(double valor){
         if (getSaldo() + getLimiteCredito() < valor){ 
+            
             throw new RuntimeException("Sem dinheiro");
 
         }
         else{
            setSaldo(getSaldo() - valor);
+           incluirMovimento(new Movimento(valor, TipoMovimento.DEBITO));
+
         }
         
     }

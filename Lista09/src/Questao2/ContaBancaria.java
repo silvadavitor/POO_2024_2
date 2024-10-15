@@ -1,23 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package Questao2;
 
+import java.util.ArrayList;
 
-/**
- *
- * @author vitor-nuvme
- */
 public class ContaBancaria {
 
     private String numero;
     private double saldo;
     private Cliente titular;
-    
-    
+    private ArrayList<Movimento> movimentos;
+
     public ContaBancaria() {
+        this.movimentos = new ArrayList<>();
     }
+
     public String getNumero() {
         return numero;
     }
@@ -42,19 +37,33 @@ public class ContaBancaria {
         this.titular = titular;
     }
     
-    public void depositar(double valor){
+    public void depositar(double valor) {
         setSaldo(getSaldo() + valor);
+        incluirMovimento(new Movimento(valor, TipoMovimento.CREDITO)); 
     }
     
-    public void sacar(double valor){
-        setSaldo(getSaldo() - valor);
-        
+    public void sacar(double valor) {
+        if (valor <= getSaldo()) {
+            incluirMovimento(new Movimento(valor, TipoMovimento.DEBITO));
+            setSaldo(getSaldo() - valor);
+        } else {
+            throw new IllegalArgumentException("Saldo insuficiente para saque.");
+        }
     }
     
-    public void transferir(ContaBancaria contaDestino, double valor){
+    public void transferir(ContaBancaria contaDestino, double valor) {
         setSaldo(getSaldo() - valor);
         contaDestino.setSaldo(contaDestino.getSaldo() + valor);
-        
+        incluirMovimento(new Movimento(valor, TipoMovimento.DEBITO)); 
+    }
+
+    public ArrayList<Movimento> getMovimentos() {
+        return movimentos;
     }
     
+    protected void incluirMovimento(Movimento m) {
+        System.out.println("Movimento adicionado: " + m.getValor() + " Tipo: " + m.getTipoMovimento());
+
+        this.movimentos.add(m);
+    }
 }
