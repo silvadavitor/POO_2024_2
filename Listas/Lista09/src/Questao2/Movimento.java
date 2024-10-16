@@ -13,7 +13,7 @@ public class Movimento {
         this.data = LocalDate.now();
         this.hora = LocalTime.now();
         this.valor = valor;
-        this.tipoMovimento = tipo; // Corrigido para usar 'tipo'
+        this.tipoMovimento = tipo; 
     }
     
     public double getValor() {

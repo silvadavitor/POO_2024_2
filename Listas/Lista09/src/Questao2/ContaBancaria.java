@@ -62,8 +62,6 @@ public class ContaBancaria {
     }
     
     protected void incluirMovimento(Movimento m) {
-        System.out.println("Movimento adicionado: " + m.getValor() + " Tipo: " + m.getTipoMovimento());
-
         this.movimentos.add(m);
     }
 }
